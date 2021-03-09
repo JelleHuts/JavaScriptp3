@@ -2,7 +2,7 @@ let boardSize = 21;
 let board = document.getElementById("board");
 let keyboardInput = document.getElementById("keyboardInput");
 let direction = 0;
-let position = { x: Math.floor((boardSize - 1) / 2), y: Math.floor((boardSize - 1) / 2) };
+let position = { x: Math.floor(boardSize / 2), y: Math.floor(boardSize / 2) };
 
 
 //drawBoard
@@ -23,7 +23,8 @@ function clearBoard() {
     for (let j = 0; j < boardSize; j++){
         for (let i = 0; i < boardSize; i++){
             let snakeId = "x" + i + "y" + j;
-            document.getElementById(snakeId).style.background = "lightgray";
+            document.getElementById(snakeId).style.background = "white";
+            // document.getElementById(snakeId).style.borderStyle = "none";
         }
     }
 }
@@ -67,7 +68,8 @@ function collisionCheck(){
 function drawSnake(){
     let snakeHeadPosition = "x" + position.x + "y" + position.y;
     document.getElementById(snakeHeadPosition).style.background = "red";
-    document.getElementById(snakeHeadPosition).style.borderRadius = "50%";
+    // document.getElementById(snakeHeadPosition).style.borderRadius = "50%";
+    // document.getElementById(snakeHeadPosition).style.border = "1px solid black";
 }
 
 

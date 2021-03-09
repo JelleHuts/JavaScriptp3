@@ -92,25 +92,25 @@ textarea {
 .cell{
   width: 20px;
   height: 20px;
-  border: 1.1px solid lightgray;
+  border: 1px solid black;
   display:inline;
   float: left;
 }
 #board {
-  border: 3px solid black;
-  width: 467px;
-  margin: 0 auto;
-  background-color: lightgray;
+  /* border: 3px solid black; */
+  /* width: 467px; */
+  /* margin: 0 auto; */
+  /* background-color: lightgray; */
 }
 
 
-/* .cell {
+.cell {
   border: 1px solid black;
   width: 20px;
   height: 20px;
   display: inline;
   float: left;
-} */
+}
 
 
 
