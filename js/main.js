@@ -67,6 +67,7 @@ function collisionCheck(){
 function drawSnake(){
     let snakeHeadPosition = "x" + position.x + "y" + position.y;
     document.getElementById(snakeHeadPosition).style.background = "red";
+    document.getElementById(snakeHeadPosition).style.borderRadius = "50%";
 }
 
 
