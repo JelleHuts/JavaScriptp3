@@ -96,13 +96,6 @@ textarea {
   display:inline;
   float: left;
 }
-#board {
-  /* border: 3px solid black; */
-  /* width: 467px; */
-  /* margin: 0 auto; */
-  /* background-color: lightgray; */
-}
-
 
 .cell {
   border: 1px solid black;
@@ -110,6 +103,16 @@ textarea {
   height: 20px;
   display: inline;
   float: left;
+}
+
+.food {
+  background-color: green;
+  border-radius: 50%;
+}
+
+.body{
+  background-color:  red;
+  border-radius: 50%;
 }
 
 
