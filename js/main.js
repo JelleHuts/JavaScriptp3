@@ -6,13 +6,17 @@ let foodIsEaten = true;
 let position = { x: Math.floor(boardSize / 2), y: Math.floor(boardSize / 2) };
 let foodPosition = { x: 0, y: 0 };
 
+let snakePositions = [];
+snakePositions.push("x"+position.x+"y"+position.y); 
+
 
 //drawBoard
 
 function drawBoard() {
-    for (let j = 0; j < boardSize; j++) {
-        for (let i = 0; i < boardSize; i++) {
-            board.innerHTML += "<div id='x" + i + "y" + j + "' class='cell'></div>";
+    //drawBoard (maakt het speelveld dat is opgebouwd uit div elementen met een unieke id)
+    for (let y = 0; y < boardSize; y++) {
+        for (let x = 0; x < boardSize; x++) {
+            board.innerHTML += "<div id='x" + x + "y" + y + "' class='cell'>x" + x + "y" + y + "</div>";
         }
         board.innerHTML += "<br>";
     }
@@ -34,18 +38,20 @@ function clearBoard() {
 //updatePosition
 
 function updatePosition() {
-    if (direction == "up") {
+    if (direction == 1) {
         position.y = position.y - 1;
     }
-    if (direction == "down") {
+    if (direction == 2) {
         position.y = position.y + 1;
     }
-    if (direction == "right") {
+    if (direction == 3) {
         position.x = position.x + 1;
     }
-    if (direction == "left") {
+    if (direction == 4) {
         position.x = position.x - 1;
     }
+    snakePositions.shift();
+    snakePositions.push("x"+position.x+"y"+position.y);
 }
 
 
@@ -54,6 +60,9 @@ function updatePosition() {
 function resetGame() {
     direction = 0;
     position = { x: Math.floor((boardSize - 1) / 2), y: Math.floor((boardSize - 1) / 2) };
+    foodIsEaten = false;
+    snakePositions.length = 0;
+
 }
 
 
@@ -67,8 +76,14 @@ function collisionCheck() {
 //drawSnake
 
 function drawSnake() {
-    let snakeHeadPosition = "x" + position.x + "y" + position.y;
-    document.getElementById(snakeHeadPosition).className += " body";
+    //let snakeHeadsnakePosition = "x" + snakePosition.x + "y" + snakePosition.y;
+    //document.getElementById(snakeHeadsnakePosition).className += " bodySnake";
+    for(let i=0;i<snakePositions.length;i++)
+    {
+        // console.log(snakePositions[i]);
+        document.getElementById(snakePositions[i]).className += " body";
+    }
+
 }
 
 
@@ -77,7 +92,7 @@ function drawSnake() {
 function drawFood() {
     if (foodIsEaten) {
         //
-        //todo: zorg er voor dat het voedsel nooit op de slang kan komen te staan!!
+        //TODO: zorg er voor dat het voedsel nooit op de slang kan komen te staan!!
         //
         let xRandom = Math.floor(Math.random() * (boardSize - 1));
         let yRandom = Math.floor(Math.random() * (boardSize - 1));
@@ -90,38 +105,46 @@ function drawFood() {
 }
 
 
-
+function snakeEatsFood(){
+    if (position.x == foodPosition.x && position.y == foodPosition.y) {
+        foodIsEaten = true;
+        snakePositions.push("x"+position.x+"y"+position.y);
+    }
+}
 
 //gameLoop
 
 function gameLoop() {
+
     updatePosition();
     collisionCheck();
     clearBoard();
     drawFood();
     drawSnake();
+    snakeEatsFood();
+
 }
 
 drawBoard();
-setInterval(gameLoop, 500);
+setInterval(gameLoop, 150);
 
 
 // keyboard controls
 
 window.addEventListener("keydown", function (event) {
     if (event.key == "ArrowUp") {
-        direction = "up";
+        direction = 1;
     }
     if (event.key == "ArrowDown") {
-        direction = "down";
+        direction = 2;
     }
     if (event.key == "ArrowRight") {
-        direction = "right";
+        direction = 3;
     }
     if (event.key == "ArrowLeft") {
-        direction = "left";
+        direction = 4;
     }
-    // keyboardInput.innerHTML = direction;
+    // keyboardInput.innerHTML = "direction:" + direction;
 }, true);
 
 
