@@ -116,13 +116,18 @@ body {
 }
 
 .food {
-  background-color: green;
-  border-radius: 50%;
+  /* background-color: green; */
+  background-image: url("../img/apple.png");
+  background-size: cover;
+  /* border-radius: 50%; */
+  background-repeat: no-repeat;
 }
 
 .body{
   background-color:  red;
-  border-radius: 50%;
+  /* background-image: url("../img/snake.png"); */
+  /* background-size: cover; */
+  /* border-radius: 50%; */
   border: 1px solid black;
   /* transition: 1.2s; */
 }

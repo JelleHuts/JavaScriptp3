@@ -10,6 +10,8 @@ let snakePositions = [];
 snakePositions.push("x"+position.x+"y"+position.y); 
 
 
+
+
 //drawBoard
 
 function drawBoard() {
@@ -39,7 +41,7 @@ function clearBoard() {
 
 function updatePosition() {
     if (direction == 1) {
-        position.y = position.y - 1;
+        position.y = position.y -1;
     }
     if (direction == 2) {
         position.y = position.y + 1;
@@ -126,17 +128,20 @@ function gameLoop() {
 }
 
 drawBoard();
-setInterval(gameLoop, 150);
-
+setInterval(gameLoop, 130);
 
 // keyboard controls
 
 window.addEventListener("keydown", function (event) {
     if (event.key == "ArrowUp") {
         direction = 1;
+    } else if (direction != 1 && event.key == "ArrowUp"){
+        direction = 2
     }
     if (event.key == "ArrowDown") {
         direction = 2;
+    }else if (direction != 2 && event.key == "ArrowDown"){
+        direction = 1
     }
     if (event.key == "ArrowRight") {
         direction = 3;
