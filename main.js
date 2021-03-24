@@ -97,65 +97,7 @@ function drawSnake() {
             document.getElementById(snakePositions[i]).className += " bodyDirection" + direction;
         } else if (i == 0) {
             //hier wordt zijn staart getekend
-            if (snakePositions.length>1){
-                // document.getElementById(snakePositions[i]).className += " bodyDirectionAchter" + direction;
-                // let hokjenaastdestaart = snakePositions[i+1]; 
-                // let hokjenaastdestaartX = hokjenaastdestaart.split("y")[0].split("x")[1];
-                // let hokjenaastdestaartY = hokjenaastdestaart.split("y")[1];
-                
-                // let hokjestaart = snakePositions[i];
-                // let hokjestaartX = hokjestaart.split("y")[0].split("x")[1];
-                // let hokjestaartY = hokjestaart.split("y")[1];
-
-                // if (hokjenaastdestaartX==hokjestaartX)
-                // {
-                //     if (hokjenaastdestaartY<hokjestaartY)
-                //     {
-                //         document.getElementById(snakePositions[i]).className += " bodyDirection2";
-                //     }
-                //     else
-                //     {
-                //         document.getElementById(snakePositions[i]).className += " bodyDirection1";
-                //     }
-                // }
-                // else
-                // {
-                //     if (hokjenaastdestaartX<hokjestaartX)
-                //     {
-                //         document.getElementById(snakePositions[i]).className += " bodyDirection4";
-                //     }
-                //     else
-                //     {
-                //         document.getElementById(snakePositions[i]).className += " bodyDirection3";
-                //     }
-                // }
-                // if (hokjenaastdestaartY==hokjestaartY)
-                // {
-                //     if (hokjenaastdestaartY<hokjestaartX)
-                //     {
-                //         document.getElementById(snakePositions[i]).className += " bodyDirection1";
-                //     }
-                //     else
-                //     {
-                //         document.getElementById(snakePositions[i]).className += " bodyDirection4";
-                //     }
-                // }
-                // else
-                // {
-                //     if (hokjenaastdestaartX<hokjestaartY)
-                //     {
-                //         document.getElementById(snakePositions[i]).className += " bodyDirection2";
-                //     }
-                //     else
-                //     {
-                //         document.getElementById(snakePositions[i]).className += " bodyDirection3";
-                //     }
-                // }
-            }
-            
-            document.getElementById(snakePositions[i]).className += " bodyDirection" + direction;
-
-            // document.getElementById(snakePositions[i]).className += " bodyDirectionAchter" + direction;
+            document.getElementById(snakePositions[i]).className += " bodyDirectionAchter" + direction;
         }
 
 
