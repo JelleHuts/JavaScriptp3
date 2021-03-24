@@ -152,13 +152,8 @@ function drawSnake() {
                 //     }
                 // }
             }
-            
-            document.getElementById(snakePositions[i]).className += " bodyDirection" + direction;
-
             // document.getElementById(snakePositions[i]).className += " bodyDirectionAchter" + direction;
         }
-
-
         // console.log(snakePositions[i]);
         document.getElementById(snakePositions[i]).className += " body";
     }
